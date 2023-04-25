@@ -2,7 +2,8 @@
 
 name: Testsml
 
-on: push
+on: 
+     workflow_dispatch:
 
 jobs:
 
