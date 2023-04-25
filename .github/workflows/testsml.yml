@@ -1,6 +1,6 @@
  
 
-name: installonly
+name: testsml
 
 on: push
 
