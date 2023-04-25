@@ -17,8 +17,7 @@ jobs:
       - name: Install SML (macos)
         run: |
           config/install.sh
-          export PATH="/Users/runner/work/legacy/legacy/bin::$PATH"
-          
+         
       - name: Create test file
         run: |
           cat > test-script.sml <<EOF
@@ -27,4 +26,5 @@ jobs:
 
       - name: Test execution (macos)
         run: |
+          export PATH="/Users/runner/work/legacy/legacy/bin::$PATH"
           sml test-script.sml
