@@ -1,0 +1,26 @@
+name: testsml
+
+on: push
+
+jobs:
+
+  build-test:
+
+    name: sml code base
+    runs-on: macos-latest
+    steps:
+      
+      - uses: actions/checkout@v3
+      
+      - name: Install SML (macos)
+        run: |
+          config/install.sh
+          
+      - name: Create test scripts
+        run: |
+          cat > test-script.sml <<EOF
+          print "Hello!\n";
+          EOF
+      - name: Test execution (macos)
+        run: |
+          sml test-script.sml
