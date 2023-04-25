@@ -15,14 +15,13 @@ jobs:
       - name: Install SML (macos)
         run: |
           config/install.sh
-          export PATH="/Users/runner/work/legacy/legacy/bin::$PATH"
       
       - name: Recompile (macos)
         run: |    
           cd base/system
-          cmb-make /Users/runner/work/legacy/legacy/bin/sml
-          makeml 
-          installml -clean
+          ./cmb-make /Users/runner/work/legacy/legacy/bin/sml
+          ./makeml 
+          ./installml -clean
           
       - name: Re-Install SML (macos)
         run: |
