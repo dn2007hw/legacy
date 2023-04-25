@@ -18,4 +18,5 @@ jobs:
           
       - name: Test execution (macos)
         run: |
+          export PATH="/Users/runner/work/legacy/legacy/bin::$PATH"
           sml
