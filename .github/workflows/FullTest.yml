@@ -1,6 +1,3 @@
-
-
-
 name: FullTest
 
 on: push
@@ -23,22 +20,23 @@ jobs:
       - name: Recompile (macos)
         run: |    
           cd base/system
-          cmb-make ../../bin/sml
+          cmb-make /Users/runner/work/legacy/legacy/bin/sml
           makeml 
           installml -clean
+          
       - name: Re-Install SML (macos)
         run: |
           config/install.sh
-          export PATH="/Users/runner/work/legacy/legacy/bin::$PATH"
-          
+                    
       - name: Create test scripts
         run: |
           cat > test-script <<EOF
-          #!/home/jbw/daya-fork-smlnj-legacy/bin/sml --script
+          #!/usr/bin/env -Ssml --script
           print "Hello!\n";
           EOF
           chmod a+x test-script
           
       - name: Test execution (macos)
         run: |
+          export PATH="/Users/runner/work/legacy/legacy/bin::$PATH"
           ./testscript
