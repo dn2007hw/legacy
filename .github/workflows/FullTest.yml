@@ -24,10 +24,12 @@ jobs:
 
       - name: Recompile makeml (macos)
         run: |    
+          cd base/system
           ./makeml 
       
       - name: Recompile installml (macos)
         run: |    
+          cd base/system
           ./installml -clean
           
       - name: Re-Install SML (macos)
