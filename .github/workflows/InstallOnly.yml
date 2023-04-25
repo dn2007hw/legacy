@@ -1,4 +1,4 @@
-name: testsml
+name: installonly
 
 on: push
 
@@ -16,11 +16,6 @@ jobs:
         run: |
           config/install.sh
           
-      - name: Create test scripts
-        run: |
-          cat > test-script.sml <<EOF
-          print "Hello!\n";
-          EOF
       - name: Test execution (macos)
         run: |
-          sml test-script.sml
+          sml
