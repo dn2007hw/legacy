@@ -44,4 +44,4 @@ jobs:
           EOF
           chmod a+x test-script
           export PATH="/Users/runner/work/legacy/legacy/bin:$PATH"
-          ./testscript
+          ./test-script
