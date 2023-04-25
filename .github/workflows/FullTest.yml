@@ -12,6 +12,9 @@ jobs:
     steps:
       
       - uses: actions/checkout@v3
+        with:
+            repository: smlnj/legacy
+            path: dn2007hw-patch-2-with-mutecompiler
       
       - name: Install SML (macos)
         run: |
