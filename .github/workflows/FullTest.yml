@@ -20,8 +20,14 @@ jobs:
       - name: Recompile (macos)
         run: |    
           cd base/system
-          ./cmb-make /Users/runner/work/legacy/legacy/bin/sml
+          PATH=$PATH:$PWD/../../bin ./cmb-make ../../bin/sml
+
+      - name: Recompile makeml (macos)
+        run: |    
           ./makeml 
+      
+      - name: Recompile installml (macos)
+        run: |    
           ./installml -clean
           
       - name: Re-Install SML (macos)
