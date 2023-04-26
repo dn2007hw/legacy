@@ -55,5 +55,5 @@ jobs:
       - name: Execute test script
         run: |
           chmod a+x test-script
-          export PATH="/Users/runner/work/legacy/legacy/bin:$PATH"
+          export PATH="/home/runner/work/legacy/legacy/bin:$PATH"
           ./test-script
