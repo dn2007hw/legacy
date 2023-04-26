@@ -1,0 +1,59 @@
+name: FullTestMacOS
+
+on: 
+  workflow_dispatch:
+    
+
+jobs:
+
+  build-test:
+
+    name: Execute as a script with mute compiler
+    runs-on: macos-latest
+    steps:
+      
+      - uses: actions/checkout@v3
+        with:
+            ref: dn2007hw-patch-2-with-mutecompiler
+      
+      - name: Install SML (macos)
+        run: |
+          config/install.sh
+      
+      - name: Recompile - CMB Make (macos)
+        run: |    
+          cd base/system
+          PATH=$PATH:$PWD/../../bin ./cmb-make ../../bin/sml
+
+      - name: Recompile - makeml (macos)
+        run: |    
+          cd base/system
+          ./makeml 
+      
+      - name: Recompile - installml (macos)
+        run: |    
+          cd base/system
+          ./installml -clean
+          
+      - name: Re-Install SML (macos)
+        run: |
+          config/install.sh
+                    
+      - name: Create test script
+        run: |
+          cat > test-script <<EOF
+          #!/usr/bin/env -Ssml --script
+          val x = "Hello World x\n";
+          val () = print x;
+          val _ = Backend.Mutecompiler.silenceCompiler ();
+          val y = "Hello World y\n";
+          val () = print y;
+          val () = print y;
+          EOF
+
+
+      - name: Execute test script
+        run: |
+          chmod a+x test-script
+          export PATH="/Users/runner/work/legacy/legacy/bin:$PATH"
+          ./test-script
