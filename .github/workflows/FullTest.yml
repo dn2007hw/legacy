@@ -47,6 +47,7 @@ jobs:
           val _ = Backend.Mutecompiler.silenceCompiler ();
           val y = "Hello World y\n";
           val () = print y;
+          val () = print 3;
           EOF
           chmod a+x test-script
           export PATH="/Users/runner/work/legacy/legacy/bin:$PATH"
