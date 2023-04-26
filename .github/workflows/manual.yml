@@ -16,26 +16,26 @@ jobs:
         with:
             ref: dn2007hw-patch-2-with-mutecompiler
       
-      - name: Install SML (macos)
+      - name: Install SML (ubuntu)
         run: |
           config/install.sh
       
-      - name: Recompile - CMB Make (macos)
+      - name: Recompile - CMB Make (ubuntu)
         run: |    
           cd base/system
           PATH=$PATH:$PWD/../../bin ./cmb-make ../../bin/sml
 
-      - name: Recompile - makeml (macos)
+      - name: Recompile - makeml (ubuntu)
         run: |    
           cd base/system
           ./makeml 
       
-      - name: Recompile - installml (macos)
+      - name: Recompile - installml (ubuntu)
         run: |    
           cd base/system
           ./installml -clean
           
-      - name: Re-Install SML (macos)
+      - name: Re-Install SML (ubuntu)
         run: |
           config/install.sh
                     
