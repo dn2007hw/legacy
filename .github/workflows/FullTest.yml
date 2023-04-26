@@ -47,7 +47,7 @@ jobs:
           val _ = Backend.Mutecompiler.silenceCompiler ();
           val y = "Hello World y\n";
           val () = print y;
-          val () = print 3;
+          val () = print y;
           EOF
 
 
