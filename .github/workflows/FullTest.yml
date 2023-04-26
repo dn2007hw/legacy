@@ -42,7 +42,11 @@ jobs:
         run: |
           cat > test-script <<EOF
           #!/usr/bin/env -Ssml --script
-          print "Hello!\n";
+          val x = "Hello World x\n";
+          val () = print x;
+          val _ = Backend.Mutecompiler.silenceCompiler ();
+          val y = "Hello World y\n";
+          val () = print y;
           EOF
           chmod a+x test-script
           export PATH="/Users/runner/work/legacy/legacy/bin:$PATH"
