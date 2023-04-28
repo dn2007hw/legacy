@@ -45,10 +45,10 @@ jobs:
           #!/usr/bin/env -Ssml --script
           val x = "Hello World x\n";
           val () = print x;
-          val _ = Backend.Mutecompiler.silenceCompiler ();
+          (* val _ = Backend.Mutecompiler.silenceCompiler (); *)
           val y = "Hello World y\n";
           val () = print y;
-          val () = print y;
+          val () = print 3;
           EOF
 
 
